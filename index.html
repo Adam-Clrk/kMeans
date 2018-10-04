@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Scatter Chart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<!-- <script src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script> -->
+	<!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
+	
+	
+	<!-- <script src="http://www.chartjs.org/dist/2.7.2/Chart.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.min.js" integrity="sha384-0saKbDOWtYAw5aP4czPUm6ByY5JojfQ9Co6wDgkuM7Zn+anp+4Rj92oGK8cbV91S" crossorigin="anonymous"></script> 
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="app">
+		<button id="start">start</button>
+		<div class="cont">
+			<canvas id="graph" width="1" height="1"></canvas>
+		</div>
+		<div class="sidebar">
+			<div class="datatable__debug">
+				<button id="randomizeData">New Data</button>
+				<button id="catData">Categorize</button>
+				<button id="resetCentres">New centres</button>
+				<button id="spam">categorize+new centres</button>
+				<button id="stop" class="hidden">stop interval</button>
+			</div>
+			<table class="datatable" id="datatable">
+				<tr>
+					<th class="widecol">#</th>
+					<th colspan="999">movement per iteration</th>
+				</tr>
+			</table>
+			
+			<script>
+			const config = {
+				statPrecision: 2,			// Number of DP used to determine if categories are static
+				numClusters: 10,			// Number of clusters in generated gasussian data
+				translateFactor: 200,		// Factor to used for dispersion of clusters
+				clusterFactor: 50,			// Factor to used for dispersion of points within clusters
+				maxPoints: 500,				// Max number of points to add to graph
+				axisMagnitude: 100			// Axis size
+			}
+			</script>
+			<script src="gaussian.js"></script>
+			<script src="main.js"></script>
+		</div>
+	</div>
+</body>
+</html>

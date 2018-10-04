@@ -1,0 +1,78 @@
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+html, body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  width: 100vw;
+  /* overflow: hidden; */
+}
+
+#app {
+  display: table;
+  height: 100vh;
+  /*padding: 0;*/
+  margin: auto;
+  font-size: 0;
+}
+.cont {
+  max-width: 100vh;
+  max-height: 100vh;
+  display: inline-block;
+  height: 100vh;
+  width: 100vh;
+}
+#graph {
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.sidebar {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: top;
+  margin: 25px 0 10px 0;
+  min-width: 28ch;
+}
+#start {
+  font-size: 14px;
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.sidebar>div {
+  border-bottom: 1px solid black;
+}
+.datatable {
+  font-size: 0.95em;
+  border-collapse: collapse;
+  width: 100%;
+}
+.datatable th, .datatable td {
+  border: 1px solid black;
+  margin: 0;
+  padding: 1px 3px;
+}
+.widecol {
+  min-width: 2.7ch;
+}
+.datatable__debug button {
+  display: block;
+  font-size: 0.7em;
+  padding: 0 0;
+  margin: 0 0;
+}
+.datarow {
+  text-align: right;
+}
+.hidden {
+  display: none !important;
+}
