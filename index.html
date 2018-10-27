@@ -41,6 +41,7 @@
 			const config = {
 				statPrecision: 2,			// Number of DP used to determine if categories are static
 				numClusters: 10,			// Number of clusters in generated gasussian data
+				numCentres: 4,				// Number of centres used for clustering (don't change this yet, because currently the 4 centres reset to (100, 100) in each quadrant)
 				translateFactor: 200,		// Factor to used for dispersion of clusters
 				clusterFactor: 50,			// Factor to used for dispersion of points within clusters
 				maxPoints: 500,				// Max number of points to add to graph
@@ -48,6 +49,7 @@
 			}
 			</script>
 			<script src="util.js"></script>
+			<script src="functions.js"></script>
 			<script src="main.js"></script>
 		</div>
 	</div>

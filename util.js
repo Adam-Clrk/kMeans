@@ -1,4 +1,4 @@
-
+/* get a random number, with Gaussian/normal distribution */
 function randn_bm() {
     var u = 0, v = 0;
     while(u === 0) u = Math.random() //Converting [0,1) to (0,1)
@@ -9,10 +9,18 @@ function randn_bm() {
     return num
 }
 
-function randomSet(n, clusterFactor, translateFactor) {
+/**
+ * Generate a set of coordinates, in clusters of normal distribution. These clusters are also arranged in a cluster.
+ * @param {Number} maxPoints total max size of the set (the set could be as small as (maxPoints - numClusters)) 
+ * @param {Number} numClusters number of clusters to be created
+ * @param {Number} clusterFactor dispersion coefficient for the points of a cluster
+ * @param {Number} translateFactor dispersion coefficient for clusters
+ * @returns {Array<{x: Number, y: Number}>} set of 2-dimensional coordinates
+ */
+function randomSet(maxPoints, numClusters, clusterFactor, translateFactor) {
     var set = []
-    var pointsPerCluster = Math.floor(config.maxPoints / n)
-    for (let i = 0; i < n; i++) {
+    var pointsPerCluster = Math.floor(maxPoints / numClusters)
+    for (let i = 0; i < numClusters; i++) {
         var translate = {
             x: (randn_bm() - 0.5) * 2 * translateFactor,
             y: (randn_bm() - 0.5) * 2 * translateFactor
@@ -26,3 +34,32 @@ function randomSet(n, clusterFactor, translateFactor) {
     }
     return set
 }
+
+/**
+ * Get the Ecludian distance between two points in 2-dimensional space
+ * @param {Number} x1 1st x coordinate
+ * @param {Number} y1 1st y coordinate
+ * @param {Number} x2 2nd x coordinate
+ * @param {Number} y2 2nd y coordinate
+ * @returns {Number} Euclidean distance
+ */
+const getEuclideanDistance = function(x1,y1,x2,y2) {
+    return Math.hypot((x1-x2), (y1-y2))
+}
+
+
+/* colors (colours) */
+const AchartColors = [
+    'rgb(255, 99, 132)',
+    'rgb(255, 159, 64)',
+    'rgb(255, 205, 86)',
+    'rgb(75, 192, 192)',
+    'rgb(54, 162, 235)',
+    'rgb(153, 102, 255)'
+]
+
+/**
+ * Get a colour from a selection using seed n
+ * @param {Number} n 
+ */
+const getColor = n => AchartColors[n % AchartColors.length]
